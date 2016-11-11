@@ -15,7 +15,7 @@ data Session = Session{ user_id :: String
 instance FromJSON Session
 instance ToJSON Session
 
-getSessions :: IO B.ByteString
-getSessions = curlResults
+getSessions :: IO (Maybe [Session])
+getSessions = decode <$> curlResults
   where
     curlResults = simpleHttp "https://hubbit.chalmers.it/sessions.json"
