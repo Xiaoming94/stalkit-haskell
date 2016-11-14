@@ -6,7 +6,6 @@ import qualified Data.ByteString.Lazy as B
 import Data.Aeson
 import System.IO
 import Control.Monad
-import Data.Maybe
 
 data Session = Session{ user_id :: String
                         ,nick :: String
