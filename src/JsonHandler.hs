@@ -1,5 +1,5 @@
 {-# LANGUAGE OverloadedStrings, DeriveGeneric #-}
-
+module JsonHandler where
 import GHC.Generics
 import Network.HTTP.Conduit
 import qualified Data.ByteString.Lazy as B
