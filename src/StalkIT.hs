@@ -8,16 +8,16 @@ import Data.List
 sleepingTime = 10000000
 
 main :: IO()
-main = stalkIT getSessions
+main = do
+  initialSession <- getSessions
+  stalkIT initialSession
 
-stalkIT :: IO (Maybe [Session]) -> IO ()
-stalkIT sess1 = do
+stalkIT :: Maybe [Session] -> IO ()
+stalkIT s1 = do
   threadDelay sleepingTime
-  let sess2 = getSessions
-  s1 <- sess1
-  s2 <- sess2
+  s2 <- getSessions
   handleSessions (fromJust s1) (fromJust s2)
-  stalkIT sess2
+  stalkIT s2
 
 handleSessions :: [Session] -> [Session] -> IO()
 handleSessions s1 s2
