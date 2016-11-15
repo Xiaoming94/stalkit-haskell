@@ -5,11 +5,12 @@ import System.IO
 import Control.Monad
 import Control.Concurrent
 
-delay      = 2000000
+delay      = 5000000
 
 hasLeft :: [String] -> IO()
 hasLeft [] = return()
 hasLeft (nick:nickList) = do
+  print "success"
   pushLeft nick
   threadDelay delay
   hasLeft nickList
@@ -18,6 +19,7 @@ hasLeft (nick:nickList) = do
 hasArrived :: [String] -> IO()
 hasArrived [] = return()
 hasArrived (nick:nickList) = do
+  print "success"
   pushArrived nick
   threadDelay delay
   hasArrived nickList

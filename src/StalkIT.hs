@@ -17,7 +17,7 @@ stalkIT sess1 = do
   s1 <- sess1
   s2 <- sess2
   handleSessions (fromJust s1) (fromJust s2)
-  print "Testing return"
+  stalkIT sess2
 
 handleSessions :: [Session] -> [Session] -> IO()
 handleSessions s1 s2
